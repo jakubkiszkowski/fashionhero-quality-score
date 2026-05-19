@@ -21,6 +21,20 @@
       This page requires JavaScript to display.
     </div>
   </noscript>
+  <script>
+    (function() {
+      var interval = setInterval(function() {
+        var buttons = document.querySelectorAll('nav button, aside button, [class*="nav"] button, [class*="sidebar"] button');
+        buttons.forEach(function(btn) {
+          if (btn.textContent.includes('Quality Score')) {
+            btn.setAttribute('data-ph-id', 'nav-quality-score');
+            clearInterval(interval);
+          }
+        });
+      }, 200);
+      setTimeout(function() { clearInterval(interval); }, 10000);
+    })();
+  </script>
 </head>
 <body>
   <div id="__bundler_thumbnail">
